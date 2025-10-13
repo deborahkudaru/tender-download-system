@@ -1,0 +1,106 @@
+{
+  "tenders": [
+    {
+      "id": "1",
+      "title": "Supply of Office Furniture and Equipment",
+      "category": "Procurement",
+      "type": "Open Tender",
+      "location": "Abuja, Nigeria",
+      "closingDate": "2025-11-15",
+      "description": "The Federal Ministry of Works invites eligible vendors to submit bids for the supply and delivery of high-quality office furniture and related equipment to its headquarters in Abuja. Interested suppliers must demonstrate capacity, relevant experience, and financial capability.",
+      "estimatedAmount": "₦25,000,000",
+      "organization": {
+        "name": "Federal Ministry of Works",
+        "description": "A government body responsible for the construction and maintenance of public infrastructure across Nigeria.",
+        "contactEmail": "procurement@fmw.gov.ng",
+        "contactPhone": "+234-800-555-1234"
+      },
+      "downloadLink": "https://example.com/tenders/fmw-office-furniture.pdf"
+    },
+    {
+      "id": "2",
+      "title": "Road Rehabilitation Project – Enugu State",
+      "category": "Construction",
+      "type": "Restricted Tender",
+      "location": "Enugu, Nigeria",
+      "closingDate": "2025-10-30",
+      "description": "The Enugu State Government seeks qualified contractors for the rehabilitation and resurfacing of selected rural roads. Bidders must be registered construction firms with verifiable experience in civil works.",
+      "estimatedAmount": "₦320,000,000",
+      "organization": {
+        "name": "Enugu State Ministry of Works",
+        "description": "Responsible for developing and maintaining public infrastructure within Enugu State.",
+        "contactEmail": "info@enugumow.ng",
+        "contactPhone": "+234-809-654-9871"
+      },
+      "downloadLink": "https://example.com/tenders/enugu-road-rehab.pdf"
+    },
+    {
+      "id": "3",
+      "title": "ICT Equipment Supply and Installation",
+      "category": "Technology",
+      "type": "Open Tender",
+      "location": "Lagos, Nigeria",
+      "closingDate": "2025-12-01",
+      "description": "The Lagos State ICT Agency invites reputable firms to bid for the supply, installation, and maintenance of ICT infrastructure including servers, networking equipment, and security systems.",
+      "estimatedAmount": "₦75,000,000",
+      "organization": {
+        "name": "Lagos State ICT Agency",
+        "description": "Dedicated to driving digital transformation and technological development in Lagos State.",
+        "contactEmail": "tenders@lagosict.ng",
+        "contactPhone": "+234-802-555-1000"
+      },
+      "downloadLink": "https://example.com/tenders/lagos-ict-equipment.pdf"
+    },
+    {
+      "id": "4",
+      "title": "Provision of Cleaning and Sanitation Services",
+      "category": "Facility Management",
+      "type": "Framework Agreement",
+      "location": "Port Harcourt, Nigeria",
+      "closingDate": "2025-11-05",
+      "description": "The Rivers State University invites tenders from qualified cleaning service providers for the provision of cleaning and sanitation services across its campuses for a period of two years.",
+      "estimatedAmount": "₦15,000,000",
+      "organization": {
+        "name": "Rivers State University",
+        "description": "One of Nigeria’s top higher institutions committed to academic excellence and environmental hygiene.",
+        "contactEmail": "procurement@rsu.edu.ng",
+        "contactPhone": "+234-806-777-9922"
+      },
+      "downloadLink": "https://example.com/tenders/rsu-cleaning-services.pdf"
+    },
+    {
+      "id": "5",
+      "title": "Supply of Laboratory Chemicals and Equipment",
+      "category": "Education",
+      "type": "Open Tender",
+      "location": "Kano, Nigeria",
+      "closingDate": "2025-10-28",
+      "description": "The Kano State Polytechnic invites sealed bids from reputable vendors for the supply of laboratory chemicals, reagents, and modern science equipment for its engineering and science departments.",
+      "estimatedAmount": "₦40,000,000",
+      "organization": {
+        "name": "Kano State Polytechnic",
+        "description": "A public institution focused on technical and vocational education, fostering innovation and research.",
+        "contactEmail": "tenders@kanopoly.edu.ng",
+        "contactPhone": "+234-803-445-9988"
+      },
+      "downloadLink": "https://example.com/tenders/kano-lab-supply.pdf"
+    },
+    {
+      "id": "6",
+      "title": "Construction of Solar-Powered Boreholes",
+      "category": "Water & Energy",
+      "type": "Open Tender",
+      "location": "Kaduna, Nigeria",
+      "closingDate": "2025-11-20",
+      "description": "The Kaduna Rural Water Supply and Sanitation Agency (RUWASSA) invites tenders from qualified contractors for the construction of 20 solar-powered boreholes across rural communities in Kaduna State.",
+      "estimatedAmount": "₦180,000,000",
+      "organization": {
+        "name": "Kaduna RUWASSA",
+        "description": "A government agency ensuring access to clean water and sanitation facilities for rural communities.",
+        "contactEmail": "info@ruwassa.kd.ng",
+        "contactPhone": "+234-805-444-2233"
+      },
+      "downloadLink": "https://example.com/tenders/kaduna-boreholes.pdf"
+    }
+  ]
+}
