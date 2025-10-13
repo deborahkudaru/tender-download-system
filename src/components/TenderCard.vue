@@ -12,4 +12,5 @@ const props = defineProps({
 
 <div>{{ tender.title }}
 </div>
+<!-- <div>{{ tender.description }}</div> -->
 </template>
