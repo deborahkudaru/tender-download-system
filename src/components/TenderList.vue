@@ -1,13 +1,19 @@
 <script setup>
-import { reactive, defineProps, onMounted } from 'vue';
+import { reactive, onMounted, ref, computed } from 'vue';
 import TenderCard from './TenderCard.vue';
 import PulseLoader from 'vue-spinner/src/PulseLoader.vue';
+// import { RouterLink } from 'vue-router';
+// import SearchBar from './SearchBar.vue';
 
 defineProps({
     limit: {
         type: Number,
         default: null
-    }
+    },
+    // showButton: {
+    //     type: Boolean,
+    //     default: false
+    // }
 });
 
 const state = reactive({
@@ -15,6 +21,8 @@ const state = reactive({
     isLoading: true,
     error: null,
 });
+
+// const searchQuery = ref('');
 
 onMounted(async () => {
     try {
@@ -36,6 +44,7 @@ onMounted(async () => {
 
 <template>
     <div>
+        <!-- <SearchBar /> -->
         <div class="text-center text-gray-500 py-6">
             <PulseLoader v-if="state.isLoading" :loading="state.isLoading" color="#000" size="15px" />
             <div v-if="state.error" class="error">{{ state.error }}</div>
@@ -44,4 +53,6 @@ onMounted(async () => {
         <TenderCard v-for="tender in state.tenders.slice(0, limit || state.tenders.length)" :key="tender.id"
             :tender="tender" />
     </div>
+
+
 </template>
