@@ -1,5 +1,6 @@
 <script setup>
 import { reactive, defineProps, onMounted } from 'vue';
+import TenderCard from './TenderCard.vue';
 
 const state = reactive({
     tenders: [],
@@ -13,10 +14,12 @@ onMounted(async () => {
         if (!response.ok) {
             throw new Error('Failed to fetch tenders');
         }
-        state.tenders = await response.json();
+        const data = await response.json();
+        state.tenders = data.tenders;
         console.log(state.tenders);
     } catch (err) {
         state.error = err.message;
+        console.error('Error fetching tenders:', err);
     } finally {
         state.isLoading = false;
     }
@@ -24,5 +27,7 @@ onMounted(async () => {
 </script>
 
 <template>
- 
+ <div>
+    <TenderCard v-for="tender in state.tenders" :key="tender.id" :tender="tender" />
+ </div>
 </template>
