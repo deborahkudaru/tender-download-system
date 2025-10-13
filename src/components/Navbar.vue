@@ -1,16 +1,16 @@
 <script setup>
 import { ref } from 'vue'
 import { RouterLink } from 'vue-router'
-
-
 </script>
 
 <template>
     <nav class="flex justify-between py-2">
         <div>
+            <RouterLink to="/">
             TDS
+            </RouterLink>
         </div>
-        <ul>
+        <ul class="flex space-x-4">
             <li>
                 <RouterLink to="/">Home</RouterLink>
 

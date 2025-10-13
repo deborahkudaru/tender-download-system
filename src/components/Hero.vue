@@ -1,5 +1,9 @@
 <script setup>
 import { defineProps } from 'vue';
+import { useRouter } from 'vue-router';
+
+
+const router = useRouter();
 
 defineProps({
   title: {
@@ -11,6 +15,10 @@ defineProps({
     default: 'Browse hundreds of tender opportunities, get all the details you need, and download documents instantly.',
   },
 });
+
+function goToTenders() {
+  router.push({ name: 'tenders' });
+}
 </script>
 
 <template>
@@ -19,6 +27,6 @@ defineProps({
         <p>
             {{ subtitle }}
         </p>
-        <button>View Tenders</button>
+        <button @click="goToTenders">View Tenders</button>
     </div>
 </template>
