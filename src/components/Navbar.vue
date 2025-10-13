@@ -6,7 +6,7 @@ import { RouterLink } from 'vue-router'
 </script>
 
 <template>
-    <nav class="flex js">
+    <nav class="flex justify-between py-2">
         <div>
             TDS
         </div>
@@ -15,8 +15,10 @@ import { RouterLink } from 'vue-router'
                 <RouterLink to="/">Home</RouterLink>
 
             </li>
+            <li>
+                <RouterLink to="/tenders">Tenders</RouterLink>
+            </li>
 
-            
         </ul>
     </nav>
 </template>
