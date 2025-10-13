@@ -2,6 +2,13 @@
 import { reactive, defineProps, onMounted } from 'vue';
 import TenderCard from './TenderCard.vue';
 
+defineProps({
+    limit: {
+        type: Number,
+        default: null
+    }
+});
+
 const state = reactive({
     tenders: [],
     isLoading: true,
@@ -28,6 +35,6 @@ onMounted(async () => {
 
 <template>
  <div>
-    <TenderCard v-for="tender in state.tenders" :key="tender.id" :tender="tender" />
+    <TenderCard v-for="tender in state.tenders.slice(0, limit || state.tenders.length)" :key="tender.id" :tender="tender" />
  </div>
 </template>
