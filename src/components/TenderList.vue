@@ -1,6 +1,7 @@
 <script setup>
 import { reactive, defineProps, onMounted } from 'vue';
 import TenderCard from './TenderCard.vue';
+import PulseLoader from 'vue-spinner/src/PulseLoader.vue';
 
 defineProps({
     limit: {
@@ -34,7 +35,13 @@ onMounted(async () => {
 </script>
 
 <template>
- <div>
-    <TenderCard v-for="tender in state.tenders.slice(0, limit || state.tenders.length)" :key="tender.id" :tender="tender" />
- </div>
+    <div>
+        <div class="text-center text-gray-500 py-6">
+            <PulseLoader v-if="state.isLoading" :loading="state.isLoading" color="#000" size="15px" />
+            <div v-if="state.error" class="error">{{ state.error }}</div>
+            <div v-if="!state.isLoading && state.tenders.length === 0">No tenders available.</div>
+        </div>
+        <TenderCard v-for="tender in state.tenders.slice(0, limit || state.tenders.length)" :key="tender.id"
+            :tender="tender" />
+    </div>
 </template>
