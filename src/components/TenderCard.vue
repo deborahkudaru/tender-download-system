@@ -3,6 +3,7 @@ import { jsPDF } from "jspdf";
 import { useToast } from "vue-toastification";
 
 const toast = useToast();
+const emit = defineEmits(['show-details']);
 
 const props = defineProps({
   tender: {
@@ -11,12 +12,11 @@ const props = defineProps({
   },
 });
 
-
-// dpf downloader function 
+// pdf downloader function 
 const downloadTender = (tender) => {
   try {
     toast.info(`Downloading "${tender.title}"...`);
-  // pdf document 
+    // pdf document 
     const doc = new jsPDF();
 
     doc.setFontSize(20);
@@ -56,24 +56,36 @@ const downloadTender = (tender) => {
     toast.error("Failed to generate tender PDF.");
   }
 };
+
+const showDetails = () => {
+  emit('show-details', props.tender);
+};
 </script>
 
 <template>
-  <div class="p-4 rounded-xl bg-white shadow-md">
-    <h3 class="text-lg font-semibold mb-2">{{ tender.title }}</h3>
-    <p class="text-gray-600 mb-4 line-clamp-2">
+  <div class="p-6 rounded-xl bg-white shadow-md border border-gray-100 hover:shadow-lg transition-shadow">
+    <h3 class="text-lg font-semibold mb-3 text-gray-900">{{ tender.title }}</h3>
+    <p class="text-gray-600 mb-4 line-clamp-2 text-sm leading-relaxed">
       {{ tender.description }}
     </p>
-    <p class="text-sm text-gray-500 mb-3">
+    <p class="text-sm text-gray-500 mb-4">
       <strong>Deadline:</strong>
       {{ new Date(tender.deadline).toLocaleDateString() }}
     </p>
 
-    <button
-      @click="downloadTender(tender)"
-      class="bg-blue-600 text-white px-4 py-2 mt-3 rounded-lg hover:bg-blue-700 transition-colors"
-    >
-      Download PDF
-    </button>
+    <div class="flex gap-3">
+      <button
+        @click="showDetails"
+        class="flex-1 bg-gray-100 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-200 transition-colors text-sm font-medium"
+      >
+        Read More
+      </button>
+      <button
+        @click="downloadTender(tender)"
+        class="flex-1 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium"
+      >
+        Download PDF
+      </button>
+    </div>
   </div>
 </template>

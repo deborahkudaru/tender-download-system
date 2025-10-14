@@ -16,7 +16,7 @@ const closeMobileMenu = () => {
 <template>
     <nav class="bg-white border-b border-gray-200 relative z-50">
         <div class="flex justify-between py-5 px-6 items-center max-w-7xl mx-auto">
-            <div class="font-bold text-2xl bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
+            <div class="font-bold text-2xl bg-blue-800 bg-clip-text text-transparent">
                 <RouterLink to="/" @click="closeMobileMenu" class="hover:opacity-80 transition-opacity">
                     TDS
                 </RouterLink>

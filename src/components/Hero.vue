@@ -57,35 +57,6 @@ function goToTenders() {
           </div>
         </button>
       </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-16 py-2 max-w-3xl mx-auto">
-        <div
-          class="flex flex-col items-center p-4 rounded-xl bg-white/60 backdrop-blur-sm shadow-sm hover:shadow-md transition-shadow">
-          <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-3">
-            <i class="pi pi-download text-blue-600 text-2xl"></i>
-          </div>
-          <h3 class="font-semibold text-gray-800">Instant Access</h3>
-          <p class="text-sm text-gray-600 text-center mt-1">Download documents immediately</p>
-        </div>
-
-        <div
-          class="flex flex-col items-center p-4 rounded-xl bg-white/60 backdrop-blur-sm shadow-sm hover:shadow-md transition-shadow">
-          <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-3">
-            <i class="pi pi-search text-indigo-600 text-2xl"></i>
-          </div>
-          <h3 class="font-semibold text-gray-800">Smart Search</h3>
-          <p class="text-sm text-gray-600 text-center mt-1">Find relevant opportunities fast</p>
-        </div>
-
-        <div
-          class="flex flex-col items-center p-4 rounded-xl bg-white/60 backdrop-blur-sm shadow-sm hover:shadow-md transition-shadow">
-          <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-3">
-            <i class="pi pi-eye text-blue-600 text-2xl"></i>
-          </div>
-          <h3 class="font-semibold text-gray-800">Fully Transparent</h3>
-          <p class="text-sm text-gray-600 text-center mt-1">All details in one place</p>
-        </div>
-      </div>
     </div>
   </div>
 </template>

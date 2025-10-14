@@ -1,6 +1,7 @@
 <script setup>
 import { reactive, onMounted, ref, computed } from 'vue'
 import TenderCard from './TenderCard.vue'
+import TenderModal from './TenderModal.vue' // Import the modal
 import PulseLoader from 'vue-spinner/src/PulseLoader.vue'
 import SearchBar from './SearchBar.vue'
 
@@ -21,6 +22,10 @@ const searchQuery = ref('')
 const currentPage = ref(1)
 const itemsPerPage = ref(6)
 
+// Modal state
+const selectedTender = ref(null)
+const showModal = ref(false)
+
 // fetch tenders from dummy json file
 onMounted(async () => {
     try {
@@ -35,6 +40,18 @@ onMounted(async () => {
         state.isLoading = false
     }
 })
+
+// Handle show details from TenderCard
+const handleShowDetails = (tender) => {
+  selectedTender.value = tender
+  showModal.value = true
+}
+
+// Handle modal close
+const handleCloseModal = () => {
+  showModal.value = false
+  selectedTender.value = null
+}
 
 // computed filtered list
 const filteredTenders = computed(() => {
@@ -121,7 +138,12 @@ const goToPage = (page) => {
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            <TenderCard v-for="tender in paginatedTenders" :key="tender.id" :tender="tender" />
+            <TenderCard 
+                v-for="tender in paginatedTenders" 
+                :key="tender.id" 
+                :tender="tender" 
+                @show-details="handleShowDetails"
+            />
         </div>
 
         <!-- Pagination Controls -->
@@ -174,5 +196,12 @@ const goToPage = (page) => {
             {{ Math.min(currentPage * itemsPerPage, filteredTenders.length) }} 
             of {{ filteredTenders.length }} tenders
         </div>
+
+        <!-- Tender Modal -->
+        <TenderModal 
+            :tender="selectedTender"
+            :show="showModal"
+            @close="handleCloseModal"
+        />
     </div>
 </template>
