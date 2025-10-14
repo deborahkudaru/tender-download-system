@@ -28,28 +28,23 @@ function goToTenders() {
         style="animation-delay: 1s"></div>
     </div>
 
-    <!-- Content -->
     <div class="relative z-10 max-w-4xl mx-auto text-center space-y-8 animate-fade-in">
-      <!-- Badge -->
       <div
         class="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium shadow-sm mt-2">
         <i class="pi pi-check-circle"></i>
         Trusted Procurement Platform
       </div>
 
-      <!-- Title with gradient -->
       <h1 class="text-4xl sm:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
         <span class="bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 bg-clip-text text-transparent">
           {{ title }}
         </span>
       </h1>
 
-      <!-- Subtitle -->
       <p class="text-lg sm:text-xl lg:text-2xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">
         {{ subtitle }}
       </p>
 
-      <!-- CTA Button with enhanced styling -->
       <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
         <button @click="goToTenders"
           class="group relative px-8 py-4 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 overflow-hidden">
@@ -63,8 +58,7 @@ function goToTenders() {
         </button>
       </div>
 
-      <!-- Feature highlights -->
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-16 max-w-3xl mx-auto">
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-16 py-2 max-w-3xl mx-auto">
         <div
           class="flex flex-col items-center p-4 rounded-xl bg-white/60 backdrop-blur-sm shadow-sm hover:shadow-md transition-shadow">
           <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-3">

@@ -105,7 +105,7 @@ const goToPage = (page) => {
 </script>
 
 <template>
-    <div class="px-6">
+    <div class="px-6 pt-10">
         <div>
             <h2 class="text-2xl font-bold mb-4">Available Tenders</h2>
         </div>

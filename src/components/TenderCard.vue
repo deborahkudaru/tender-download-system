@@ -14,30 +14,25 @@ const props = defineProps({
 const downloadTender = (tender) => {
   try {
     toast.info(`Downloading "${tender.title}"...`);
-
+  // pdf document 
     const doc = new jsPDF();
 
-    // Header
     doc.setFontSize(20);
     doc.text("Tender Document", 20, 20);
     doc.setFontSize(12);
     doc.text(`Generated on: ${new Date().toLocaleString()}`, 20, 30);
 
-    // Line divider
     doc.line(20, 35, 190, 35);
 
-    // Tender details
     doc.setFontSize(14);
     doc.text(`Title: ${tender.title}`, 20, 50);
     doc.text("Description:", 20, 65);
 
-    // Wrapped description text
     doc.setFontSize(12);
     doc.text(tender.description || "No description provided.", 20, 75, {
       maxWidth: 160,
     });
 
-    // More details
     doc.text(`Budget: ${tender.budget || "N/A"}`, 20, 110);
     doc.text(
       `Deadline: ${
