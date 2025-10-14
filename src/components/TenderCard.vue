@@ -65,7 +65,7 @@ const downloadTender = (tender) => {
 </script>
 
 <template>
-  <div class="p-4 border rounded-xl bg-white shadow-md w-full sm:w-1/2">
+  <div class="p-4 rounded-xl bg-white shadow-md">
     <h3 class="text-lg font-semibold mb-2">{{ tender.title }}</h3>
     <p class="text-gray-600 mb-4 line-clamp-2">
       {{ tender.description }}

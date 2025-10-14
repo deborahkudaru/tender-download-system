@@ -21,11 +21,12 @@ function goToTenders() {
 </script>
 
 <template>
-    <div>
-        <h1>{{ title }}</h1>
-        <p>
-            {{ subtitle }}
-        </p>
-        <button @click="goToTenders">View Tenders</button>
-    </div>
+  <div class="min-h-screen flex flex-col items-center justify-center px-4">
+    <h1 class="text-3xl sm:text-5xl font-bold mb-4 text-center">{{ title }}</h1>
+    <p class="text-lg sm:text-xl text-gray-600 mb-8 text-center">{{ subtitle }}</p>
+    <button @click="goToTenders"
+      class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors font-semibold shadow">
+      View Tenders
+    </button>
+  </div>
 </template>

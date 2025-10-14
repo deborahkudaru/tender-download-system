@@ -5,7 +5,6 @@ import TenderList from '../components/TenderList.vue';
 
 <template>
     <div>
-        <h1>Tender View</h1>
         <TenderList />
     </div>
 </template>
