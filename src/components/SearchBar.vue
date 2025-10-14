@@ -1,32 +1,22 @@
 <script setup>
-import { ref, watch } from 'vue';
+import { ref, watch } from 'vue'
 
-defineProps({
-    modelValue: {
-        type: String,
-        default: "",
-    },
-});
+const emit = defineEmits(['search'])
+const searchQuery = ref('')
 
-const emit = defineEmits(["update:modelValue"]);
-
-const query = ref(modelValue);
-
-const updateQuery = () => {
-    emit("update:modelValue", query.value);
-};
-
-watch(
-    () => modelValue,
-    (newVal) => {
-        query.value = newVal;
-    }
-);
+// emit search text when user types
+watch(searchQuery, (val) => {
+  emit('search', val)
+})
 </script>
 
 <template>
-    <div class="bg-gray-100 p-4 rounded">
-        <input v-model="query" @input="updateQuery" type="text" placeholder="Search tenders..."
-            class="w-full p-2 border border-gray-300 rounded" />
-    </div>
+  <div class="w-full flex justify-center mb-6">
+    <input
+      v-model="searchQuery"
+      type="text"
+      placeholder="Search tenders by title, description, or tags..."
+      class="w-full max-w-lg px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+    />
+  </div>
 </template>

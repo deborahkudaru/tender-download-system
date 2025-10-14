@@ -10,7 +10,7 @@ const app = createApp(App);
 app.use(router);
 app.use(Toast, {
     position: "top-right",
-    timeout: 3000,
+    timeout: 9000,
     closeOnClick: true,
     pauseOnHover: true,
     draggable: true,
