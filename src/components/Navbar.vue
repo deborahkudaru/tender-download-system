@@ -1,6 +1,7 @@
 <script setup>
 import { RouterLink } from 'vue-router'
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
+import { useAuthStore } from '../stores/auth'
 
 const isMobileMenuOpen = ref(false)
 
@@ -10,6 +11,15 @@ const toggleMobileMenu = () => {
 
 const closeMobileMenu = () => {
     isMobileMenuOpen.value = false
+}
+
+const auth = useAuthStore()
+
+const isLoggedIn = computed(() => auth.isAuthenticated)
+
+const handleLogout = () => {
+    auth.logout()
+    closeMobileMenu()
 }
 </script>
 
@@ -23,6 +33,7 @@ const closeMobileMenu = () => {
             </div>
 
             <!-- Desktop Menu -->
+            <!-- Desktop Menu -->
             <ul class="hidden md:flex space-x-8 text-base font-medium">
                 <li>
                     <RouterLink to="/"
@@ -32,6 +43,7 @@ const closeMobileMenu = () => {
                             class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
                     </RouterLink>
                 </li>
+
                 <li>
                     <RouterLink to="/tenders"
                         class="flex items-center hover:text-blue-600 transition-all duration-200 relative group py-2">
@@ -41,7 +53,8 @@ const closeMobileMenu = () => {
                     </RouterLink>
                 </li>
 
-                <li>
+                <!-- Show Sign Up only when not logged in -->
+                <li v-if="!isLoggedIn">
                     <RouterLink to="/signup"
                         class="flex items-center hover:text-blue-600 transition-all duration-200 relative group py-2">
                         Sign Up
@@ -49,7 +62,16 @@ const closeMobileMenu = () => {
                             class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
                     </RouterLink>
                 </li>
+
+                <!-- Show Logout when logged in -->
+                <li v-if="isLoggedIn">
+                    <button @click="handleLogout"
+                        class="flex items-center text-red-600 hover:text-red-700 transition-all duration-200 relative group py-2">
+                        Logout
+                    </button>
+                </li>
             </ul>
+
 
             <!-- Mobile Menu Button -->
             <button @click="toggleMobileMenu"
@@ -85,6 +107,22 @@ const closeMobileMenu = () => {
                                 class="absolute left-0 top-0 h-full w-1 bg-blue-600 transform scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-top"></span>
                         </RouterLink>
                     </li>
+                    <li v-if="!isLoggedIn" class="overflow-hidden">
+                        <RouterLink to="/signup" @click="closeMobileMenu"
+                            class="flex items-center px-6 py-4 hover:bg-blue-50 hover:text-blue-600 transition-all duration-200 font-medium relative group">
+                            <span class="relative z-10">Sign Up</span>
+                            <span
+                                class="absolute left-0 top-0 h-full w-1 bg-blue-600 transform scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-top"></span>
+                        </RouterLink>
+                    </li>
+
+                    <li v-if="isLoggedIn" class="overflow-hidden">
+                        <button @click="handleLogout"
+                            class="flex items-center px-6 py-4 hover:bg-red-50 text-red-600 hover:text-red-700 transition-all duration-200 font-medium relative group w-full text-left">
+                            <span class="relative z-10">Logout</span>
+                        </button>
+                    </li>
+
                 </ul>
             </div>
         </Transition>

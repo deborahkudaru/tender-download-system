@@ -1,8 +1,6 @@
 <script setup>
 import { useToast } from "vue-toastification";
 
-const toast = useToast();
-
 defineProps({
   tender: {
     type: Object,
