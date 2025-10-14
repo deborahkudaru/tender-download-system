@@ -40,7 +40,6 @@ const handleLogout = () => {
 
             <!-- Desktop Menu -->
             <ul class="hidden md:flex space-x-8 text-base font-medium">
-                <!-- Show Sign Up only when not logged in -->
                 <li v-if="!isLoggedIn">
                     <RouterLink to="/signup"
                         class="flex items-center hover:text-blue-600 transition-all duration-200 relative group py-2">
@@ -50,7 +49,6 @@ const handleLogout = () => {
                     </RouterLink>
                 </li>
 
-                <!-- Show Logout when logged in -->
                 <li v-if="isLoggedIn">
                     <button @click="handleLogout"
                         class="flex items-center text-red-600 hover:text-red-700 transition-all duration-200 relative group py-2">

@@ -37,10 +37,9 @@ const downloadTender = (tender) => {
 
     doc.text(`Budget: ${tender.budget || "N/A"}`, 20, 110);
     doc.text(
-      `Deadline: ${
-        tender.deadline
-          ? new Date(tender.deadline).toLocaleDateString()
-          : "N/A"
+      `Deadline: ${tender.deadline
+        ? new Date(tender.deadline).toLocaleDateString()
+        : "N/A"
       }`,
       20,
       120
@@ -74,16 +73,12 @@ const showDetails = () => {
     </p>
 
     <div class="flex gap-3">
-      <button
-        @click="showDetails"
-        class="flex-1 bg-gray-100 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-200 transition-colors text-sm font-medium"
-      >
+      <button @click="showDetails"
+        class="flex-1 bg-gray-100 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-200 transition-colors text-sm font-medium">
         Read More
       </button>
-      <button
-        @click="downloadTender(tender)"
-        class="flex-1 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium"
-      >
+      <button @click="downloadTender(tender)"
+        class="flex-1 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium">
         Download PDF
       </button>
     </div>

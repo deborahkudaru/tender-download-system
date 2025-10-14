@@ -35,10 +35,7 @@ const closeModal = () => {
             </span>
           </div>
         </div>
-        <button
-          @click="closeModal"
-          class="ml-4 text-gray-400 hover:text-gray-600 transition-colors"
-        >
+        <button @click="closeModal" class="ml-4 text-gray-400 hover:text-gray-600 transition-colors">
           <i class="pi pi-times text-xl"></i>
         </button>
       </div>
@@ -54,11 +51,8 @@ const closeModal = () => {
         <div v-if="tender?.tags?.length" class="mb-6">
           <h3 class="font-semibold text-gray-900 mb-3">Tags</h3>
           <div class="flex flex-wrap gap-2">
-            <span
-              v-for="tag in tender.tags"
-              :key="tag"
-              class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm"
-            >
+            <span v-for="tag in tender.tags" :key="tag"
+              class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">
               {{ tag }}
             </span>
           </div>

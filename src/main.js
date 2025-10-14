@@ -1,11 +1,11 @@
-import { createApp } from 'vue'
-import './style.css'
-import App from './App.vue'
-import router from './router';
+import { createApp } from "vue";
+import "./style.css";
+import App from "./App.vue";
+import router from "./router";
 import Toast from "vue-toastification";
 import "vue-toastification/dist/index.css";
-import 'primeicons/primeicons.css';
-import { createPinia } from 'pinia';
+import "primeicons/primeicons.css";
+import { createPinia } from "pinia";
 
 const app = createApp(App);
 
@@ -15,17 +15,17 @@ app.use(pinia);
 
 app.use(router);
 app.use(Toast, {
-    position: "top-right",
-    timeout: 9000,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-    draggablePercent: 0.6,
-    showCloseButtonOnHover: false,
-    hideProgressBar: false,
-    closeButton: "button",
-    icon: true,
-    rtl: false
+  position: "top-right",
+  timeout: 9000,
+  closeOnClick: true,
+  pauseOnHover: true,
+  draggable: true,
+  draggablePercent: 0.6,
+  showCloseButtonOnHover: false,
+  hideProgressBar: false,
+  closeButton: "button",
+  icon: true,
+  rtl: false,
 });
 
-app.mount('#app');
+app.mount("#app");

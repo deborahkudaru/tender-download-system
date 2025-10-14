@@ -1,34 +1,38 @@
-import { defineStore } from 'pinia'
+import { defineStore } from "pinia";
 
-export const useAuthStore = defineStore('auth', {
+export const useAuthStore = defineStore("auth", {
   state: () => ({
-    user: JSON.parse(localStorage.getItem('user')) || null
+    user: JSON.parse(localStorage.getItem("user")) || null,
   }),
 
   actions: {
     signup(username, password) {
       // Save the user in localStorage
-      const newUser = { username, password }
-      localStorage.setItem('user', JSON.stringify(newUser))
-      this.user = newUser
+      const newUser = { username, password };
+      localStorage.setItem("user", JSON.stringify(newUser));
+      this.user = newUser;
     },
 
     login(username, password) {
-      const storedUser = JSON.parse(localStorage.getItem('user'))
-      if (storedUser && storedUser.username === username && storedUser.password === password) {
-        this.user = storedUser
-        return true
+      const storedUser = JSON.parse(localStorage.getItem("user"));
+      if (
+        storedUser &&
+        storedUser.username === username &&
+        storedUser.password === password
+      ) {
+        this.user = storedUser;
+        return true;
       }
-      return false
+      return false;
     },
 
     logout() {
-      localStorage.removeItem('user')
-      this.user = null
-    }
+      localStorage.removeItem("user");
+      this.user = null;
+    },
   },
 
   getters: {
-    isAuthenticated: (state) => !!state.user
-  }
-})
+    isAuthenticated: (state) => !!state.user,
+  },
+});

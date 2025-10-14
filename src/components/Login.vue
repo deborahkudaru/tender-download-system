@@ -29,37 +29,28 @@ const handleLogin = () => {
     <div class="flex justify-center items-center min-h-screen px-4">
         <div class="bg-white shadow-xl rounded-xl p-8 w-full max-w-md">
             <h2 class="text-3xl font-bold mb-6 text-center text-gray-800">Welcome Back</h2>
-            
+
             <div class="space-y-4">
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-1">Username</label>
-                    <input 
-                        v-model="username" 
-                        placeholder="Enter your username" 
-                        class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
-                    />
+                    <input v-model="username" placeholder="Enter your username"
+                        class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition" />
                 </div>
-                
+
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-1">Password</label>
-                    <input 
-                        v-model="password" 
-                        placeholder="Enter your password" 
-                        type="password"
-                        class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
-                    />
+                    <input v-model="password" placeholder="Enter your password" type="password"
+                        class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition" />
                 </div>
             </div>
 
-            <button 
-                @click="handleLogin" 
-                class="mt-6 bg-blue-600 text-white px-4 py-2.5 w-full rounded-lg hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 transition font-medium"
-            >
+            <button @click="handleLogin"
+                class="mt-6 bg-blue-600 text-white px-4 py-2.5 w-full rounded-lg hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 transition font-medium">
                 Log In
             </button>
 
             <p class="text-center text-sm text-gray-600 mt-4">
-                Don't have an account? 
+                Don't have an account?
                 <router-link to="/signup" class="text-blue-600 hover:text-blue-700 font-medium hover:underline">
                     Sign up
                 </router-link>
