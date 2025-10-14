@@ -1,5 +1,47 @@
-# Vue 3 + Vite
+# Tender Dashboard System (TDS)
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+A simple **Vue 3** project with **Pinia state management**, **Vue Router**, and **Tailwind CSS**, featuring user authentication (Sign Up and Login) and protected routes.
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+---
+
+##  Features
+
+-  **User Authentication**
+  - Sign Up and Login system using Pinia store.
+  - Logout functionality (removes session).
+  - Dynamic Navbar (shows **Sign Up** when logged out, **Logout** when logged in).
+  
+-  **Routing**
+  - `/` — Home page.
+  - `/signup` — User registration page.
+  - `/login` — Login page.
+  - `/tenders` — Protected route (only accessible after login).
+
+-  **Responsive Navbar**
+  - Collapsible mobile menu.
+  - Animated hover effects.
+  - Automatically adapts based on login state.
+
+
+---
+
+##  Project Setup
+
+###  Install Dependencies
+```bash
+npm install
+
+
+```
+### run project on local computer
+```bash
+npm run dev 
+
+```
+
+### build for production
+
+```bash
+npm run build
+
+```

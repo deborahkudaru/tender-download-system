@@ -33,12 +33,11 @@ const handleLogout = () => {
     <nav class="bg-white border-b border-gray-200 relative z-50">
         <div class="flex justify-between py-5 px-6 items-center max-w-7xl mx-auto">
             <div class="font-bold text-2xl bg-blue-800 bg-clip-text text-transparent">
-                <RouterLink to="/" @click="closeMobileMenu" class="hover:opacity-80 transition-opacity">
+                <div @click="closeMobileMenu" class="hover:opacity-80 transition-opacity">
                     TDS
-                </RouterLink>
+                </div>
             </div>
 
-            <!-- Desktop Menu -->
             <!-- Desktop Menu -->
             <ul class="hidden md:flex space-x-8 text-base font-medium">
                 <!-- Show Sign Up only when not logged in -->
