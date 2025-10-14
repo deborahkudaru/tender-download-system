@@ -47,7 +47,7 @@ const closeMobileMenu = () => {
         <!-- Mobile Menu -->
         <div 
             v-if="isMobileMenuOpen"
-            class="absolute top-full left-0 right-0 bg-white shadow-lg md:hidden z-50"
+            class="absolute top-full left-0 right-0 shadow-lg md:hidden z-50"
         >
             <ul class="flex flex-col py-4">
                 <li class="">
