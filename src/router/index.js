@@ -30,16 +30,16 @@ const router = createRouter({
   ],
 });
 
-router.beforeEach((to, from, next) => {
-  const auth = useAuthStore();
-  const publicPages = ["/login", "/signup"];
-  const authRequired = !publicPages.includes(to.path);
+// router.beforeEach((to, from, next) => {
+//   const auth = useAuthStore();
+//   const publicPages = ["/login", "/signup"];
+//   const authRequired = !publicPages.includes(to.path);
 
-  if (authRequired && !auth.isAuthenticated) {
-    return next("/login");
-  }
+//   if (authRequired && !auth.isAuthenticated) {
+//     return next("/login");
+//   }
 
-  next();
-});
+//   next();
+// });
 
 export default router;

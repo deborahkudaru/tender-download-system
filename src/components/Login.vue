@@ -55,7 +55,7 @@ const handleLogin = () => {
                 @click="handleLogin" 
                 class="mt-6 bg-blue-600 text-white px-4 py-2.5 w-full rounded-lg hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 transition font-medium"
             >
-                Sign In
+                Log In
             </button>
 
             <p class="text-center text-sm text-gray-600 mt-4">
