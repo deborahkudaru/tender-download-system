@@ -45,3 +45,9 @@ npm run dev
 npm run build
 
 ```
+### run unit testing
+
+```bash
+npm run test
+
+```
