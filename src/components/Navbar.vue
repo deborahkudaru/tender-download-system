@@ -2,6 +2,10 @@
 import { RouterLink } from 'vue-router'
 import { ref, computed } from 'vue'
 import { useAuthStore } from '../stores/auth'
+import { useRouter } from 'vue-router'
+
+
+const router = useRouter()
 
 const isMobileMenuOpen = ref(false)
 
@@ -20,6 +24,8 @@ const isLoggedIn = computed(() => auth.isAuthenticated)
 const handleLogout = () => {
     auth.logout()
     closeMobileMenu()
+    router.push({ name: 'login' })
+
 }
 </script>
 
@@ -35,24 +41,6 @@ const handleLogout = () => {
             <!-- Desktop Menu -->
             <!-- Desktop Menu -->
             <ul class="hidden md:flex space-x-8 text-base font-medium">
-                <li>
-                    <RouterLink to="/"
-                        class="flex items-center hover:text-blue-600 transition-all duration-200 relative group py-2">
-                        Home
-                        <span
-                            class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
-                    </RouterLink>
-                </li>
-
-                <li>
-                    <RouterLink to="/tenders"
-                        class="flex items-center hover:text-blue-600 transition-all duration-200 relative group py-2">
-                        Tenders
-                        <span
-                            class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
-                    </RouterLink>
-                </li>
-
                 <!-- Show Sign Up only when not logged in -->
                 <li v-if="!isLoggedIn">
                     <RouterLink to="/signup"
@@ -91,22 +79,6 @@ const handleLogout = () => {
             <div v-if="isMobileMenuOpen"
                 class="fixed top-[73px] right-0 w-64 h-[calc(100vh-73px)] bg-white shadow-2xl md:hidden z-50 overflow-y-auto">
                 <ul class="flex flex-col py-6">
-                    <li class="overflow-hidden">
-                        <RouterLink to="/" @click="closeMobileMenu"
-                            class="flex items-center px-6 py-4 hover:bg-blue-50 hover:text-blue-600 transition-all duration-200 font-medium relative group">
-                            <span class="relative z-10">Home</span>
-                            <span
-                                class="absolute left-0 top-0 h-full w-1 bg-blue-600 transform scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-top"></span>
-                        </RouterLink>
-                    </li>
-                    <li class="overflow-hidden">
-                        <RouterLink to="/tenders" @click="closeMobileMenu"
-                            class="flex items-center px-6 py-4 hover:bg-blue-50 hover:text-blue-600 transition-all duration-200 font-medium relative group">
-                            <span class="relative z-10">Tenders</span>
-                            <span
-                                class="absolute left-0 top-0 h-full w-1 bg-blue-600 transform scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-top"></span>
-                        </RouterLink>
-                    </li>
                     <li v-if="!isLoggedIn" class="overflow-hidden">
                         <RouterLink to="/signup" @click="closeMobileMenu"
                             class="flex items-center px-6 py-4 hover:bg-blue-50 hover:text-blue-600 transition-all duration-200 font-medium relative group">

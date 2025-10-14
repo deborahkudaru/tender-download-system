@@ -14,8 +14,8 @@ defineProps({
   },
 });
 
-function goToTenders() {
-  router.push({ name: 'tenders' });
+function goToSignUp() {
+  router.push({ name: 'signup' });
 }
 </script>
 
@@ -46,10 +46,10 @@ function goToTenders() {
       </p>
 
       <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-        <button @click="goToTenders"
+        <button @click="goToSignUp"
           class="group relative px-8 py-4 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 overflow-hidden">
           <span class="relative z-10 flex items-center gap-2">
-            View Tenders
+            Get Started
             <i class="pi pi-arrow-right group-hover:translate-x-1 transition-transform"></i>
           </span>
           <div

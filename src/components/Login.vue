@@ -26,7 +26,7 @@ const handleLogin = () => {
 </script>
 
 <template>
-    <div class="flex justify-center items-center min-h-screen">
+    <div class="flex justify-center items-center min-h-screen px-4">
         <div class="bg-white shadow-xl rounded-xl p-8 w-full max-w-md">
             <h2 class="text-3xl font-bold mb-6 text-center text-gray-800">Welcome Back</h2>
             

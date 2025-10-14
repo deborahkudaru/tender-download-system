@@ -5,5 +5,5 @@ import TenderList from '../components/TenderList.vue';
 
 <template>
  <Hero />   
- <TenderList :limit="6" />
+ <!-- <TenderList :limit="6" /> -->
 </template>
