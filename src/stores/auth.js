@@ -7,7 +7,6 @@ export const useAuthStore = defineStore("auth", {
 
   actions: {
     signup(username, password) {
-      // Save the user in localStorage
       const newUser = { username, password };
       localStorage.setItem("user", JSON.stringify(newUser));
       this.user = newUser;
