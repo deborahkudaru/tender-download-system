@@ -10,10 +10,6 @@ defineProps({
         type: Number,
         default: null
     },
-    // showButton: {
-    //     type: Boolean,
-    //     default: false
-    // }
 });
 
 const state = reactive({
@@ -24,6 +20,7 @@ const state = reactive({
 
 // const searchQuery = ref('');
 
+// fetch tenders from dummy json file
 onMounted(async () => {
     try {
         const response = await fetch('/tender.json');

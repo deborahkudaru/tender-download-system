@@ -13,7 +13,6 @@ import { RouterLink } from 'vue-router'
         <ul class="flex space-x-4">
             <li>
                 <RouterLink to="/">Home</RouterLink>
-
             </li>
             <li>
                 <RouterLink to="/tenders">Tenders</RouterLink>
