@@ -19,7 +19,7 @@ const state = reactive({
 
 const searchQuery = ref('')
 const currentPage = ref(1)
-const itemsPerPage = ref(10)
+const itemsPerPage = ref(6)
 
 // fetch tenders from dummy json file
 onMounted(async () => {
