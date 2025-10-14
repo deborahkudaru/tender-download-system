@@ -64,7 +64,7 @@ const handleSearch = (query) => {
             <div v-if="!state.isLoading && filteredTenders.length === 0">No tenders found.</div>
         </div>
 
-        <div class="grid grid-cols-3 gap-3">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             <TenderCard v-for="tender in filteredTenders.slice(0, limit || filteredTenders.length)" :key="tender.id"
                 :tender="tender" />
         </div>
