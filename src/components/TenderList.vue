@@ -91,11 +91,14 @@ const visiblePages = computed(() => {
     return pages
 })
 
+
+// search handler
 const handleSearch = (query) => {
     searchQuery.value = query
     currentPage.value = 1 
 }
 
+// pagination handler
 const goToPage = (page) => {
     if (page >= 1 && page <= totalPages.value) {
         currentPage.value = page

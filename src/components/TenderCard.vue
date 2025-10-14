@@ -11,6 +11,8 @@ const props = defineProps({
   },
 });
 
+
+// dpf downloader function 
 const downloadTender = (tender) => {
   try {
     toast.info(`Downloading "${tender.title}"...`);
@@ -44,11 +46,8 @@ const downloadTender = (tender) => {
       120
     );
 
-    // Footer
     doc.setFontSize(10);
     doc.text("Tender Download System", 20, 280);
-
-    // Save as real PDF
     doc.save(`${tender.title}.pdf`);
 
     toast.success("Tender PDF downloaded successfully!");
