@@ -43,7 +43,7 @@ const handleSignup = () => {
 
       <div class="space-y-4">
         <div>
-          <label class="block text-sm font-medium text-gray-700 mb-1">Username</label>
+          <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Username</label>
           <input v-model="username" @input="handleUsernameInput" @blur="handleUsernameInput"
             placeholder="Choose a username (3-20 characters)" :class="[
               'w-full px-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition',
@@ -56,7 +56,7 @@ const handleSignup = () => {
         </div>
 
         <div>
-          <label class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+          <label for="passowrd" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
           <input v-model="password" @input="handlePasswordInput" @blur="handlePasswordInput" type="password"
             placeholder="Create a strong password" :class="[
               'w-full px-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition',

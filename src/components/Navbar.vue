@@ -4,7 +4,6 @@ import { ref, computed } from 'vue';
 import { useAuthStore } from '../stores/auth';
 import { useRouter } from 'vue-router';
 
-
 const router = useRouter()
 
 const isMobileMenuOpen = ref(false)

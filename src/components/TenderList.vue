@@ -28,6 +28,8 @@ const itemsPerPage = ref(6)
 const selectedTender = ref(null)
 const showModal = ref(false)
 
+const slideDirection = ref('slide-left')
+
 // fetching tenders from dummy json file
 onMounted(async () => {
     try {
@@ -120,6 +122,7 @@ const handleSearch = (query) => {
 // pagination handler
 const goToPage = (page) => {
     if (page >= 1 && page <= totalPages.value) {
+        slideDirection.value = page > currentPage.value ? 'slide-left' : 'slide-right'
         currentPage.value = page
         window.scrollTo({ top: 0, behavior: 'smooth' })
     }
@@ -151,9 +154,13 @@ const goToPage = (page) => {
             <div v-if="!state.isLoading && filteredTenders.length === 0">No tenders found.</div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            <TenderCard v-for="tender in paginatedTenders" :key="tender.id" :tender="tender"
-                @show-details="handleShowDetails" />
+        <div class="relative overflow-hidden">
+            <transition :name="slideDirection" mode="out-in">
+                <div :key="currentPage" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                    <TenderCard v-for="tender in paginatedTenders" :key="tender.id" :tender="tender"
+                        @show-details="handleShowDetails" />
+                </div>
+            </transition>
         </div>
 
         <!-- Pagination controls for tenders -->
@@ -200,3 +207,32 @@ const goToPage = (page) => {
         <TenderModal :tender="selectedTender" :show="showModal" @close="handleCloseModal" />
     </div>
 </template>
+
+<style scoped>
+.slide-left-enter-active,
+.slide-left-leave-active,
+.slide-right-enter-active,
+.slide-right-leave-active {
+    transition: all 0.3s ease;
+}
+
+.slide-left-enter-from {
+    opacity: 0;
+    transform: translateX(30px);
+}
+
+.slide-left-leave-to {
+    opacity: 0;
+    transform: translateX(-30px);
+}
+
+.slide-right-enter-from {
+    opacity: 0;
+    transform: translateX(-30px);
+}
+
+.slide-right-leave-to {
+    opacity: 0;
+    transform: translateX(30px);
+}
+</style>
