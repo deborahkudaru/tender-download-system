@@ -3,10 +3,13 @@ import { RouterLink } from 'vue-router';
 import { ref, computed } from 'vue';
 import { useAuthStore } from '../stores/auth';
 import { useRouter } from 'vue-router';
+import { useToast } from 'vue-toastification';
 
 const router = useRouter()
 
 const isMobileMenuOpen = ref(false)
+
+const toast = useToast();
 
 const toggleMobileMenu = () => {
     isMobileMenuOpen.value = !isMobileMenuOpen.value
@@ -24,6 +27,7 @@ const handleLogout = () => {
     auth.logout()
     closeMobileMenu()
     router.push({ name: 'login' })
+    toast.success('Logged out successfully')
 
 }
 </script>
