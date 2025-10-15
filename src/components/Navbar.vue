@@ -33,13 +33,21 @@ const handleLogout = () => {
     <nav class="bg-white border-b border-gray-200 relative z-50">
         <div class="flex justify-between py-5 px-6 items-center max-w-7xl mx-auto">
             <div class="font-bold text-2xl bg-blue-800 bg-clip-text text-transparent">
-                <div @click="closeMobileMenu" class="hover:opacity-80 transition-opacity">
+                <RouterLink to="/" @click="closeMobileMenu" class="hover:opacity-80 transition-opacity">
                     TDS
-                </div>
+                </RouterLink>
             </div>
 
             <!-- Desktop menu -->
             <ul class="hidden md:flex space-x-8 text-base font-medium">
+                <li v-if="!isLoggedIn">
+                    <RouterLink to="/login"
+                        class="flex items-center hover:text-blue-600 transition-all duration-200 relative group py-2">
+                        Log In
+                        <span
+                            class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
+                    </RouterLink>
+                </li>
                 <li v-if="!isLoggedIn">
                     <RouterLink to="/signup"
                         class="flex items-center hover:text-blue-600 transition-all duration-200 relative group py-2">
@@ -49,10 +57,12 @@ const handleLogout = () => {
                     </RouterLink>
                 </li>
 
-                <li v-if="!isLoggedIn">
-                    <RouterLink to="/login"
+
+
+                <li v-if="isLoggedIn">
+                    <RouterLink to="/tenders"
                         class="flex items-center hover:text-blue-600 transition-all duration-200 relative group py-2">
-                        Log In
+                        Tenders
                         <span
                             class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
                     </RouterLink>
@@ -85,12 +95,31 @@ const handleLogout = () => {
             <div v-if="isMobileMenuOpen"
                 class="fixed top-[73px] right-0 w-64 h-[calc(100vh-73px)] bg-white shadow-2xl md:hidden z-50 overflow-y-auto">
                 <ul class="flex flex-col py-6">
+
+                    <li v-if="!isLoggedIn" class="overflow-hidden">
+                        <RouterLink to="/login" @click="closeMobileMenu"
+                            class="flex items-center px-6 py-4 hover:bg-blue-50 hover:text-blue-600 transition-all duration-200 font-medium relative group">
+                            <span class="relative z-10">Log In</span>
+                            <span
+                                class="absolute left-0 top-0 h-full w-1 bg-blue-600 transform scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-top"></span>
+                        </RouterLink>
+                    </li>
                     <li v-if="!isLoggedIn" class="overflow-hidden">
                         <RouterLink to="/signup" @click="closeMobileMenu"
                             class="flex items-center px-6 py-4 hover:bg-blue-50 hover:text-blue-600 transition-all duration-200 font-medium relative group">
                             <span class="relative z-10">Sign Up</span>
                             <span
                                 class="absolute left-0 top-0 h-full w-1 bg-blue-600 transform scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-top"></span>
+                        </RouterLink>
+                    </li>
+
+
+                    <li v-if="isLoggedIn">
+                        <RouterLink to="/tenders"
+                            class="flex items-center hover:text-blue-600 transition-all duration-200 relative group py-2">
+                            Tenders
+                            <span
+                                class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
                         </RouterLink>
                     </li>
 

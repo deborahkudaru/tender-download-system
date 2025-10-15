@@ -1,23 +1,24 @@
-# Tender Dashboard System (TDS)
+# Tender Download System (TDS)
 
 A simple **Vue 3** project with **Pinia state management**, **Vue Router**, and **Tailwind CSS**, featuring user authentication (Sign Up and Login) and protected routes.
+The Tender Download system enables user to view tenders and download them, only when user has been authenticated.
 
 ---
 
 ##  Features
 
--  **User Authentication**
+###  **User Authentication**
   - Sign Up and Login system using Pinia store.
   - Logout functionality (removes session).
   - Dynamic Navbar (shows **Sign Up** when logged out, **Logout** when logged in).
   
--  **Routing**
+###  **Routing**
   - `/` — Home page.
   - `/signup` — User registration page.
   - `/login` — Login page.
   - `/tenders` — Protected route (only accessible after login).
 
--  **Responsive Navbar**
+### **Responsive Navbar**
   - Collapsible mobile menu.
   - Animated hover effects.
   - Automatically adapts based on login state.
