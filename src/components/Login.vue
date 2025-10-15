@@ -1,28 +1,29 @@
 <script setup>
-import { ref } from 'vue'
-import { useAuthStore } from '../stores/auth'
-import { useRouter } from 'vue-router'
-import { useToast } from 'vue-toastification'
+import { ref } from 'vue';
+import { useAuthStore } from '../stores/auth';
+import { useRouter } from 'vue-router';
+import { useToast } from 'vue-toastification';
 
-const username = ref('')
-const password = ref('')
-const auth = useAuthStore()
-const router = useRouter()
+const username = ref('');
+const password = ref('');
+
+const auth = useAuthStore();
+const router = useRouter();
 
 const toast = useToast();
 
 const handleLogin = () => {
     if (!username.value || !password.value) {
-        toast.error('Please enter both username and password')
+        toast.error('Please enter both username and password');
     } else {
         if (auth.login(username.value, password.value)) {
-            toast.success('Login successful!')
-            router.push('/tenders')
+            toast.success('Login successful!');
+            router.push('/tenders');
         } else {
-            toast.error('Invalid credentials')
+            toast.error('Invalid credentials');
         }
     }
-}
+};
 </script>
 
 <template>

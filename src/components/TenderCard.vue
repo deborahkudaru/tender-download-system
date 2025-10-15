@@ -16,7 +16,7 @@ const props = defineProps({
 const downloadTender = (tender) => {
   try {
     toast.info(`Downloading "${tender.title}"...`);
-    // pdf document 
+
     const doc = new jsPDF();
 
     doc.setFontSize(20);
@@ -26,6 +26,10 @@ const downloadTender = (tender) => {
 
     doc.line(20, 35, 190, 35);
 
+    doc.setFontSize(16);
+    doc.text(`Organization ${tender.organization}`, 20, 45);
+
+
     doc.setFontSize(14);
     doc.text(`Title: ${tender.title}`, 20, 50);
     doc.text("Description:", 20, 65);
@@ -34,6 +38,10 @@ const downloadTender = (tender) => {
     doc.text(tender.description || "No description provided.", 20, 75, {
       maxWidth: 160,
     });
+
+    doc.setFontSize(12);
+    doc.text("Status:", 20, 100);
+    doc.text(tender.status || "N/A", 60, 100);
 
     doc.text(`Budget: ${tender.budget || "N/A"}`, 20, 110);
     doc.text(

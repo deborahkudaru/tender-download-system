@@ -1,108 +1,111 @@
 <script setup>
-import { ref } from 'vue'
-import { useAuthStore } from '../stores/auth'
-import { useRouter } from 'vue-router'
-import { useToast } from 'vue-toastification'
+import { ref } from 'vue';
+import { useAuthStore } from '../stores/auth';
+import { useRouter } from 'vue-router';
+import { useToast } from 'vue-toastification';
 
-const username = ref('')
-const password = ref('')
-const auth = useAuthStore()
-const router = useRouter()
-const toast = useToast()
+const username = ref('');
+const password = ref('');
+
+const auth = useAuthStore();
+
+const router = useRouter();
+
+const toast = useToast();
 
 // Error states
-const usernameError = ref('')
-const passwordError = ref('')
+const usernameError = ref('');
+const passwordError = ref('');
 
 const validateForm = () => {
-  let isValid = true
+  let isValid = true;
 
   // Reset errors
-  usernameError.value = ''
-  passwordError.value = ''
+  usernameError.value = '';
+  passwordError.value = '';
 
   // Username validation
   if (!username.value) {
-    usernameError.value = 'Username is required'
-    isValid = false
+    usernameError.value = 'Username is required';
+    isValid = false;
   } else if (username.value.length < 3) {
-    usernameError.value = 'Username must be at least 3 characters long'
-    isValid = false
+    usernameError.value = 'Username must be at least 3 characters long';
+    isValid = false;
   } else if (username.value.length > 20) {
-    usernameError.value = 'Username must be less than 20 characters'
-    isValid = false
+    usernameError.value = 'Username must be less than 20 characters';
+    isValid = false;
   } else if (!/^[a-zA-Z0-9_]+$/.test(username.value)) {
-    usernameError.value = 'Username can only contain letters, numbers, and underscores'
-    isValid = false
+    usernameError.value = 'Username can only contain letters, numbers, and underscores';
+    isValid = false;
   }
 
   // Password validation
   if (!password.value) {
-    passwordError.value = 'Password is required'
-    isValid = false
+    passwordError.value = 'Password is required';
+    isValid = false;
   } else if (password.value.length < 8) {
-    passwordError.value = 'Password must be at least 8 characters long'
-    isValid = false
+    passwordError.value = 'Password must be at least 8 characters long';
+    isValid = false;
   } else if (password.value.length > 50) {
-    passwordError.value = 'Password must be less than 50 characters'
-    isValid = false
+    passwordError.value = 'Password must be less than 50 characters';
+    isValid = false;
   } else if (!/(?=.*[a-z])(?=.*[A-Z])/.test(password.value)) {
-    passwordError.value = 'Password must contain both uppercase and lowercase letters'
-    isValid = false
+    passwordError.value = 'Password must contain both uppercase and lowercase letters';
+    isValid = false;
   } else if (!/(?=.*\d)/.test(password.value)) {
-    passwordError.value = 'Password must contain at least one number'
-    isValid = false
+    passwordError.value = 'Password must contain at least one number';
+    isValid = false;
   } else if (!/(?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?])/.test(password.value)) {
-    passwordError.value = 'Password must contain at least one special character'
-    isValid = false
+    passwordError.value = 'Password must contain at least one special character';
+    isValid = false;
   }
 
-  return isValid
-}
+  return isValid;
+};
 
 const handleSignup = () => {
   if (!validateForm()) {
-    return
+    return;
   }
 
   try {
-    auth.signup(username.value, password.value)
-    toast.success('Signup successful!')
-    router.push('/login')
+    auth.signup(username.value, password.value);
+    toast.success('Signup successful!');
+    router.push('/login');
   } catch (error) {
-    toast.error('Signup failed. Please try again.')
-    console.error('Signup error:', error)
+    toast.error('Signup failed. Please try again.');
+    console.error('Signup error:', error);
   }
-}
+};
 
-// Real-time validation as user types (optional)
+// Real time validation
 const validateUsername = () => {
   if (username.value && username.value.length < 3) {
-    usernameError.value = 'Username must be at least 3 characters long'
+    usernameError.value = 'Username must be at least 3 characters long';
   } else if (username.value && username.value.length > 20) {
-    usernameError.value = 'Username must be less than 20 characters'
+    usernameError.value = 'Username must be less than 20 characters';
   } else if (username.value && !/^[a-zA-Z0-9_]+$/.test(username.value)) {
-    usernameError.value = 'Username can only contain letters, numbers, and underscores'
+    usernameError.value = 'Username can only contain letters, numbers, and underscores';
   } else {
-    usernameError.value = ''
+    usernameError.value = '';
   }
-}
+};
 
 const validatePassword = () => {
   if (password.value && password.value.length < 8) {
-    passwordError.value = 'Password must be at least 8 characters long'
+    passwordError.value = 'Password must be at least 8 characters long';
   } else if (password.value && password.value.length > 50) {
-    passwordError.value = 'Password must be less than 50 characters'
+    passwordError.value = 'Password must be less than 50 characters';
   } else if (password.value && !/(?=.*[a-z])(?=.*[A-Z])/.test(password.value)) {
-    passwordError.value = 'Password must contain both uppercase and lowercase letters'
+    passwordError.value = 'Password must contain both uppercase and lowercase letters';
   } else if (password.value && !/(?=.*\d)/.test(password.value)) {
-    passwordError.value = 'Password must contain at least one number'
+    passwordError.value = 'Password must contain at least one number';
   } else if (password.value && !/(?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?])/.test(password.value)) {
-    passwordError.value = 'Password must contain at least one special character'
+    passwordError.value = 'Password must contain at least one special character';
   } else {
-    passwordError.value = ''
+    passwordError.value = '';
   }
-}
+};
 </script>
 
 <template>

@@ -1,9 +1,10 @@
 <script setup>
 import { reactive, onMounted, ref, computed } from 'vue'
-import TenderCard from './TenderCard.vue'
-import TenderModal from './TenderModal.vue' // Import the modal
-import PulseLoader from 'vue-spinner/src/PulseLoader.vue'
-import SearchBar from './SearchBar.vue'
+import TenderCard from './TenderCard.vue';
+import TenderModal from './TenderModal.vue';
+import PulseLoader from 'vue-spinner/src/PulseLoader.vue';
+import SearchBar from './SearchBar.vue';
+import { useToast } from 'vue-toastification';
 
 defineProps({
     limit: {
@@ -17,16 +18,17 @@ const state = reactive({
     isLoading: true,
     error: null,
 })
+const toast = useToast()
 
 const searchQuery = ref('')
+
 const currentPage = ref(1)
 const itemsPerPage = ref(6)
 
-// Modal state
 const selectedTender = ref(null)
 const showModal = ref(false)
 
-// fetch tenders from dummy json file
+// fetching tenders from dummy json file
 onMounted(async () => {
     try {
         const response = await fetch('/tender.json')
@@ -35,7 +37,7 @@ onMounted(async () => {
         state.tenders = data.tenders
     } catch (err) {
         state.error = err.message
-        console.error('Error fetching tenders:', err)
+        toast.error(`Error: ${err.message}`)
     } finally {
         state.isLoading = false
     }
@@ -154,7 +156,7 @@ const goToPage = (page) => {
                 @show-details="handleShowDetails" />
         </div>
 
-        <!-- Pagination Controls -->
+        <!-- Pagination controls for tenders -->
         <div v-if="!state.isLoading && filteredTenders.length > 0"
             class="flex justify-center items-center gap-2 mt-8 mb-6">
             <button @click="goToPage(currentPage - 1)" :disabled="currentPage === 1" :class="[
@@ -194,7 +196,7 @@ const goToPage = (page) => {
             of {{ filteredTenders.length }} tenders
         </div>
 
-        <!-- Tender Modal -->
+        <!-- Tender modal showing tender details -->
         <TenderModal :tender="selectedTender" :show="showModal" @close="handleCloseModal" />
     </div>
 </template>

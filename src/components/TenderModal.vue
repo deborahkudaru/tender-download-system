@@ -1,5 +1,4 @@
 <script setup>
-import { useToast } from "vue-toastification";
 
 defineProps({
   tender: {
@@ -22,16 +21,15 @@ const closeModal = () => {
 <template>
   <div v-if="show" class="fixed inset-0 bg-black/20 flex items-center justify-center p-4 z-50">
     <div class="bg-white rounded-xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-hidden">
-      <!-- Header -->
       <div class="flex justify-between items-start p-6 border-b border-gray-200">
         <div class="flex-1">
-          <h2 class="text-xl font-bold text-gray-900 mb-2">{{ tender?.title }}</h2>
+          <h2 class="text-xl font-bold text-gray-900 mb-2">{{ tender.title }}</h2>
           <div class="flex flex-wrap gap-4 text-sm text-gray-600">
             <span class="bg-blue-50 px-2 py-1 rounded-xl">
-              Budget: {{ tender?.budget || 'N/A' }}
+              Budget: {{ tender.budget || 'N/A' }}
             </span>
             <span class="bg-red-50 px-2 py-1 rounded-xl">
-              Deadline: {{ new Date(tender?.deadline).toLocaleDateString() }}
+              Deadline: {{ new Date(tender.deadline).toLocaleDateString() }}
             </span>
           </div>
         </div>
@@ -44,7 +42,7 @@ const closeModal = () => {
         <div class="mb-6">
           <h3 class="font-semibold text-gray-900 mb-3">Description</h3>
           <p class="text-gray-700 leading-relaxed whitespace-pre-line">
-            {{ tender?.description || 'No description provided.' }}
+            {{ tender.description || 'No description provided.' }}
           </p>
         </div>
 

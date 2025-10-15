@@ -4,7 +4,6 @@ import { ref, watch } from 'vue'
 const emit = defineEmits(['search'])
 const searchQuery = ref('')
 
-// emit search text when user types
 watch(searchQuery, (val) => {
     emit('search', val)
 })

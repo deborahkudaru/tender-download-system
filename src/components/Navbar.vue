@@ -1,8 +1,8 @@
 <script setup>
-import { RouterLink } from 'vue-router'
-import { ref, computed } from 'vue'
-import { useAuthStore } from '../stores/auth'
-import { useRouter } from 'vue-router'
+import { RouterLink } from 'vue-router';
+import { ref, computed } from 'vue';
+import { useAuthStore } from '../stores/auth';
+import { useRouter } from 'vue-router';
 
 
 const router = useRouter()
@@ -38,7 +38,7 @@ const handleLogout = () => {
                 </div>
             </div>
 
-            <!-- Desktop Menu -->
+            <!-- Desktop menu -->
             <ul class="hidden md:flex space-x-8 text-base font-medium">
                 <li v-if="!isLoggedIn">
                     <RouterLink to="/signup"
@@ -49,16 +49,25 @@ const handleLogout = () => {
                     </RouterLink>
                 </li>
 
+                <li v-if="!isLoggedIn">
+                    <RouterLink to="/login"
+                        class="flex items-center hover:text-blue-600 transition-all duration-200 relative group py-2">
+                        Log In
+                        <span
+                            class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
+                    </RouterLink>
+                </li>
+
                 <li v-if="isLoggedIn">
                     <button @click="handleLogout"
                         class="flex items-center text-red-600 hover:text-red-700 transition-all duration-200 relative group py-2">
                         Logout
+                        <i class="pi pi-sign-out ml-2"></i>
                     </button>
                 </li>
             </ul>
 
-
-            <!-- Mobile Menu Button -->
+            <!-- Mobile menu button -->
             <button @click="toggleMobileMenu"
                 class="md:hidden text-2xl focus:outline-none transition-transform duration-200 hover:scale-110 text-gray-700"
                 aria-label="Toggle menu">
@@ -66,7 +75,7 @@ const handleLogout = () => {
             </button>
         </div>
 
-        <!-- Mobile Menu -->
+        <!-- Mobile menu -->
         <Transition name="backdrop">
             <div v-if="isMobileMenuOpen" @click="closeMobileMenu"
                 class="fixed inset-0 bg-black/20 backdrop-blur-sm md:hidden z-40"></div>
